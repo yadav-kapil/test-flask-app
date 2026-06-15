@@ -1,6 +1,6 @@
 # Forest Fire Weather Index (FWI) Prediction
 
-A Machine Learning-powered web application that predicts the **Fire Weather Index (FWI)** based on weather and environmental conditions. The application is built using **Flask**, **Scikit-Learn**, and a modern SaaS-style user interface.
+A test/demo Flask application that predicts the **Fire Weather Index (FWI)** using a Machine Learning model trained on weather and environmental data.
 
 ## Features
 
@@ -126,24 +126,3 @@ FWI Prediction
      ↓
 Results Page
 ```
-
-## Screenshots
-
-Add screenshots of:
-
-* Home Page
-* Prediction Result Page
-
-## Future Improvements
-
-* Prediction history
-* Interactive charts and analytics
-* Model monitoring dashboard
-* User authentication
-* Cloud deployment
-
-## Author
-
-Kapil Yadav
-
-First-Year Engineering Student | Full Stack & DevOps Learner
