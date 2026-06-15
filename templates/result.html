@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Prediction Result</title>
+
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='style.css') }}"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <h1>Prediction Result</h1>
+
+      <div class="result-card">
+        <h2>Predicted Fire Weather Index</h2>
+
+        <div class="result-value">{{ prediction }}</div>
+      </div>
+
+      <div class="details-card">
+        <h2>Input Details</h2>
+
+        <table>
+          <tr>
+            <td>Temperature</td>
+            <td>{{ data.Temperature }}</td>
+          </tr>
+
+          <tr>
+            <td>RH</td>
+            <td>{{ data.RH }}</td>
+          </tr>
+
+          <tr>
+            <td>Ws</td>
+            <td>{{ data.Ws }}</td>
+          </tr>
+
+          <tr>
+            <td>Rain</td>
+            <td>{{ data.Rain }}</td>
+          </tr>
+
+          <tr>
+            <td>FFMC</td>
+            <td>{{ data.FFMC }}</td>
+          </tr>
+
+          <tr>
+            <td>DMC</td>
+            <td>{{ data.DMC }}</td>
+          </tr>
+
+          <tr>
+            <td>ISI</td>
+            <td>{{ data.ISI }}</td>
+          </tr>
+
+          <tr>
+            <td>Class</td>
+            <td>
+              {% if data.Classes == 1 %} Fire {% else %} Not Fire {% endif %}
+            </td>
+          </tr>
+
+          <tr>
+            <td>Region</td>
+            <td>
+              {% if data.Region == 1 %} Sidi-Bel Abbes {% else %} Bejaia {%
+              endif %}
+            </td>
+          </tr>
+        </table>
+      </div>
+
+      <a href="/" class="back-btn"> Predict Another </a>
+    </div>
+  </body>
+</html>

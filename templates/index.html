@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forest Fire Prediction</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+    <div class="container">
+
+        <h1>🔥 Forest Fire Prediction</h1>
+
+        <p class="subtitle">
+            Predict Fire Weather Index (FWI) using weather and environmental parameters.
+        </p>
+
+        <form action="/submit" method="POST">
+
+            <div class="form-group">
+                <label for="Temperature">Temperature (°C)</label>
+                <input
+                    type="number"
+                    step="any"
+                    id="Temperature"
+                    name="Temperature"
+                    placeholder="e.g. 32"
+                    required>
+            </div>
+
+            <div class="form-group">
+                <label for="RH">Relative Humidity (%)</label>
+                <input
+                    type="number"
+                    step="any"
+                    id="RH"
+                    name="RH"
+                    placeholder="e.g. 65"
+                    required>
+            </div>
+
+            <div class="form-group">
+                <label for="Ws">Wind Speed</label>
+                <input
+                    type="number"
+                    step="any"
+                    id="Ws"
+                    name="Ws"
+                    placeholder="e.g. 14"
+                    required>
+            </div>
+
+            <div class="form-group">
+                <label for="Rain">Rain</label>
+                <input
+                    type="number"
+                    step="any"
+                    id="Rain"
+                    name="Rain"
+                    placeholder="e.g. 0.2"
+                    required>
+            </div>
+
+            <div class="form-group">
+                <label for="FFMC">FFMC</label>
+                <input
+                    type="number"
+                    step="any"
+                    id="FFMC"
+                    name="FFMC"
+                    placeholder="e.g. 86.5"
+                    required>
+            </div>
+
+            <div class="form-group">
+                <label for="DMC">DMC</label>
+                <input
+                    type="number"
+                    step="any"
+                    id="DMC"
+                    name="DMC"
+                    placeholder="e.g. 26.2"
+                    required>
+            </div>
+
+            <div class="form-group">
+                <label for="ISI">ISI</label>
+                <input
+                    type="number"
+                    step="any"
+                    id="ISI"
+                    name="ISI"
+                    placeholder="e.g. 5.1"
+                    required>
+            </div>
+
+            <div class="form-group">
+                <label for="Classes">Classes</label>
+                <select id="Classes" name="Classes" required>
+                    <option value="" disabled selected>
+                        Select Class
+                    </option>
+                    <option value="0">Not Fire</option>
+                    <option value="1">Fire</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="Region">Region</label>
+                <select id="Region" name="Region" required>
+                    <option value="" disabled selected>
+                        Select Region
+                    </option>
+                    <option value="0">Bejaia</option>
+                    <option value="1">Sidi-Bel Abbes</option>
+                </select>
+            </div>
+
+            <button type="submit">
+                Predict FWI
+            </button>
+
+        </form>
+
+        {% if prediction %}
+
+        <div class="result-card">
+
+            <h2>Predicted Fire Weather Index</h2>
+
+            <div class="result-value">
+                {{ prediction }}
+            </div>
+
+        </div>
+
+        {% endif %}
+
+    </div>
+
+</body>
+</html>
